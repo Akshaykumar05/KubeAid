@@ -11,13 +11,13 @@ Table of Contents
   * [Read more about this](#Read-more-about-this) 
 * [Setup of Kubernetes cluster](#Setup-of-Kubernetes-cluster)
 * [Installation](#Installation)
-  * [documentation](#./docs/Readme.md) 
+  * [documentation](./docs/Readme.md) 
 * [Support](#Support)
 * [Secrets](#Secrets)
 * [License](#License)
 * [Technical details on the features](#Technical-details-on-the-features)
 * [Documentation](#Documentation)
-    * [/docs](#/docs)
+    * [/docs](./docs)
 
 -----------------
 KubeAid feature goals:
