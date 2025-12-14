@@ -9,7 +9,7 @@ Table of Contents
 * [Kubeaid feature goals](#Kubeaid-feature-goals)
 * [The Problem KubeAid Solves](#The-Problem-KubeAid-Solves)
   * [Read more about this](#.Read-more-about-this) 
-* [Setup of Kubernetes cluster](#Setup-of-Kubernetes-cluster)
+* [Setup of Kubernetes clusters](#Setup-of-Kubernetes-clusters)
 * [Installation](#Installation)
   * [documentation](./docs/Readme.md) 
 * [Support](#Support)
