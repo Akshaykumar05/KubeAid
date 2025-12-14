@@ -20,7 +20,7 @@ Table of Contents
     * [/docs](./docs)
 
 -----------------
-KubeAid feature goals:
+## KubeAid feature goals:
 
 - Setup of k8s clusters on physical servers (on-premise or at e.g. [Hetzner.com](https://hetzner.com)) and in cloud
   providers like Azure AKS, Amazon AWS or Google GCE
