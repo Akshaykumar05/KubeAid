@@ -17,7 +17,7 @@ Table of Contents
 * [License](#License)
 * [Technical details on the features](#Technical-details-on-the-features)
 * [Documentation](#Documentation)
-    * [/docs](./docs)
+
 
 -----------------
 ## KubeAid feature goals:
