@@ -5,7 +5,7 @@ automation principles.
 
 Table of Contents
 =================
-* [Purpose and Scope](Purpose-and-Scope)
+* [Purpose and Scope](#Purpose-and-Scope)
 * [Kubeaid feature goals](#Kubeaid-feature-goals)
 * [The Problem KubeAid Solves](#The-Problem-KubeAid-Solves)
 * [Setup of Kubernetes clusters](#Setup-of-Kubernetes-clusters)
