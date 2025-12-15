@@ -5,7 +5,7 @@ automation principles.
 
 Table of Contents
 =================
-
+* [Purpose and Scope](Purpose-and-Scope)
 * [Kubeaid feature goals](#Kubeaid-feature-goals)
 * [The Problem KubeAid Solves](#The-Problem-KubeAid-Solves)
 * [Setup of Kubernetes clusters](#Setup-of-Kubernetes-clusters)
@@ -19,6 +19,9 @@ Table of Contents
 
 
 -----------------
+## Purpose and Scope
+KubeAid is a comprehensive Kubernetes platform management system that provides production-ready cluster deployment and operations using GitOps principles. It delivers a complete stack including infrastructure provisioning, monitoring, security, networking, and data persistence, with everything managed as code through ArgoCD.
+
 ## KubeAid feature goals:
 
 - Setup of k8s clusters on physical servers (on-premise or at e.g. [Hetzner.com](https://hetzner.com)) and in cloud
