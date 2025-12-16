@@ -1,4 +1,139 @@
 # Welcome to **KubeAid.io** - The home of Kubernetes Aid
+## 1. Introduction
+Briefly explain:
+* What KubeAid does (cluster lifecycle, installer, bootstrap, upgrades, ingress, DNS, etc.)
+* Supported platforms (Azure, AWS, GCP, KVM, Bare-metal, VMware, etc.)
+* Installation requirements (kubectl, helm, k3d/minikube for local testing, vendor CLI)
+
+## 2. Prerequisites
+List common requirements:
+2.1 Local machine prerequisites
+* kubectl >= 1.xx
+* Helm >= 3.x
+* k3d / kind (for local install)
+* Git
+* yq / jq
+* Docker
+
+2.2 Cloud provider prerequisites
+* CLI tools: az, aws, gcloud
+* User permissions required
+* Keypair / credentials handling
+* Network requirements
+
+2.3 KubeAid Repo
+```
+git clone https://gitea.obmondo.com/EnableIT/KubeAid.git
+cd KubeAid
+```
+## 3. Generate Sample Configuration
+This section should be universal across all vendors.
+
+3.1 Using the KubeAid CLI (recommended)
+```
+kubeaid init
+```
+Creates a sample config:
+```
+kubeaid-config.yaml
+```
+3.2 Or using templates
+```
+cp config/samples/kubeaid-azure.yaml kubeaid-config.yaml
+cp config/samples/kubeaid-aws.yaml kubeaid-config.yaml
+```
+3.3 Explanation of config sections
+* cluster metadata
+* network
+* control-plane
+* workers
+* storage
+* ingress
+* DNS
+* vendor-specific fields
+
+## 4. Adjust Configuration
+This is where you create subsections by infrastructure vendor.
+4.1 Azure Configuration
+* Resource group
+* Subscription ID
+* VM size
+* Node pools
+* Networking (VNet/Subnet)
+* Load balancer
+* DNS setup
+Example snippet (yaml)
+```
+provider: azure
+location: westeurope
+resourceGroup: kubeaid-demo
+dnsZone: example.com
+```
+4.2 AWS Configuration
+* Region
+* VPC/Subnet
+* IAM roles
+* EC2 instance types
+* Route53 DNS
+
+4.3 GCP Configuration
+* Project ID
+* Service account
+* Network
+* GKE compatible configs
+
+4.4 On-Prem / Bare Metal
+* Static IPs
+* Physical nodes
+* SSH keys
+* Load balancer (MetalLB or custom)
+* Storage options (Ceph, OpenEBS, NFS)
+
+4.5 Local k3d Cluster (for testing)
+Provide full local setup:
+```
+k3d cluster create kubeaid-local
+kubectl config use-context k3d-kubeaid-local
+```
+## 5. Run the Installer
+5.1 Install KubeAid Controller (Using Helm):
+```
+helm repo add kubeaid https://gitea.obmondo.com/EnableIT/KubeAid/charts
+helm install kubeaid kubeaid/kubeaid -n kubeaid --create-namespace
+```
+5.2 Apply Your Configuration
+```
+kubectl apply -f kubeaid-config.yaml
+```
+KubeAid will:
+* provision infra
+* create cluster
+* bootstrap workloads
+* configure networking + DNS
+* install add-ons
+
+## 6. Verify Installation
+6.1 Check pods
+```
+kubectl get pods -n kubeaid
+```
+6.2 Check CRDs
+```
+kubectl get clusters.kubeaid.io
+```
+6.3 Check installer logs
+```
+kubectl logs -n kubeaid deploy/kubeaid-controller
+```
+
+## 8. Uninstall / Cleanup
+Show how to tear down infrastructure safely depending on vendor:
+```
+kubectl delete -f kubeaid-config.yaml
+helm uninstall kubeaid -n kubeaid
+```
+
+======================== Old One ========================
 
 **KubeAid** is a Kubernetes management suite, offering a way to setup and operate K8s clusters, following gitops and
 automation principles.
