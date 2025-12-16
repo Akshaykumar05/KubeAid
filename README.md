@@ -5,8 +5,7 @@ Briefly explain:
 * Supported platforms (Azure, AWS, GCP, KVM, Bare-metal, VMware, etc.)
 * Installation requirements (kubectl, helm, k3d/minikube for local testing, vendor CLI)
 
-## 2. Prerequisites
-List common requirements:
+## 2. Prerequisites (List common requirements):
 2.1 Local machine prerequisites
 * kubectl >= 1.xx
 * Helm >= 3.x
