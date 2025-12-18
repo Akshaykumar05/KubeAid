@@ -141,6 +141,7 @@ Table of Contents
 =================
 * [Purpose and Scope](#Purpose-and-Scope)
 * [Kubeaid feature goals](#Kubeaid-feature-goals)
+* [KubeAid Architecture Overview](#KubeAid-Architecture-Overview)
 * [The Problem KubeAid Solves](#The-Problem-KubeAid-Solves)
 * [Setup of Kubernetes clusters](#Setup-of-Kubernetes-clusters)
 * [Installation](#Installation)
@@ -190,6 +191,50 @@ world and increase the velocity of the team.
 Combined with the services provided by [Obmondo](https://obmondo.com) - the makers of KubeAid, your teams no longer need subject matter experts for every piece of the stack, and can instead focus on what matters most: helping application teams succeed in production.
 
 [Read more about this](./docs/kubeaid/why-kubeaid.md)
+
+## KubeAid Architecture Overview
+
+KubeAid follows a GitOps-driven, automated approach to provision and manage 
+production-ready Kubernetes clusters. The diagram below explains the high-level flow:
+
+                             ┌──────────────────────────┐
+                             │        Git Repository    │
+                             │  (KubeAid Modules, YAML, │
+                             │   Helm Charts, Configs)  │
+                             └─────────────┬────────────┘
+                                           │
+                                           │ GitOps Sync
+                                           ▼
+                           ┌────────────────────────────────┐
+                           │             ArgoCD             │
+                           │  - Watches Git for changes     │
+                           │  - Applies configs to cluster  │
+                           └─────────────────┬──────────────┘
+                                             │
+                                             │ Deploys / Updates
+                                             ▼
+         ┌─────────────────────────────────────────────────────────────┐
+         │                   KubeAid Automation Layer                  │
+         │ ------------------------------------------------------------│
+         │  • Cluster bootstrap & lifecycle management                 │
+         │  • Add-ons installation (Ingress, Certs, Monitoring, etc.)  │
+         │  • Secure defaults & best practices                         │
+         │  • Automated upgrades and recovery                          │
+         └───────────────┬─────────────────────────────────────────────┘
+                         │
+                         │ Provisions / Manages
+                         ▼
+     ┌─────────────────────────────────────────────────────────────────────┐
+     │                     Kubernetes Cluster (Managed by KubeAid)         │
+     │ ------------------------------------------------------------------- │
+     │  • Networking (CNI, Ingress)                                        │
+     │  • Storage (CSI, PVCs)                                              │
+     │  • Certificates (StepCA/Cert-Manager)                               │
+     │  • Monitoring (Prometheus, Grafana)                                 │
+     │  • Logging & Alerting                                               │
+     │  • Application Workloads                                            │
+     └─────────────────────────────────────────────────────────────────────┘
+
 
 ## Setup of Kubernetes clusters
 
