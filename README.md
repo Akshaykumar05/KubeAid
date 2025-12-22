@@ -141,8 +141,8 @@ Table of Contents
 =================
 * [Purpose and Scope](#Purpose-and-Scope)
 * [Kubeaid feature goals](#Kubeaid-feature-goals)
-* [KubeAid Architecture Overview](#KubeAid-Architecture-Overview)
 * [The Problem KubeAid Solves](#The-Problem-KubeAid-Solves)
+* [KubeAid Architecture Overview](#KubeAid-Architecture-Overview)
 * [Setup of Kubernetes clusters](#Setup-of-Kubernetes-clusters)
 * [Installation](#Installation)
   * [documentation](./docs/Readme.md) 
